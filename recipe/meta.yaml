@@ -13,13 +13,14 @@ build:
   # Upstream does not support win
   skip: True  # [win]
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
   script_env:
    - PYTHON_HOME=$PREFIX
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
   host:
     - cpuid  # [x86]
